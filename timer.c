@@ -37,6 +37,6 @@ int main(int args,char *argv[]){
 	--seconds;
 	mils+=1000000;
   }
-  printf("=====%lu.%06ld seconds elapsed\n=====",seconds,mils);
+  printf("=====%lu.%06ld seconds elapsed=====\n",seconds,mils);
   free(command);
 }
