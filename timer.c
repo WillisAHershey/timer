@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
 #include <sys/time.h>
 
 int main(int args,char *argv[]){
@@ -25,9 +27,10 @@ int main(int args,char *argv[]){
   }
   *(pt-1)='\0';
   free(lens);
+  pid_t pid=getpid();
   printf("Command is: %s\n",command);
   struct timeval s,e;
-  printf("=====Starting timer now=====\n");
+  printf("==%ld==  =====Starting timer now=====\n",(long)pid);
   gettimeofday(&s,NULL);
   system(command);
   gettimeofday(&e,NULL);
@@ -37,6 +40,6 @@ int main(int args,char *argv[]){
 	--seconds;
 	mils+=1000000;
   }
-  printf("=====%lu.%06ld seconds elapsed=====\n",seconds,mils);
+  printf("==%ld==  =====%lu.%06ld seconds elapsed=====\n",(long)pid,seconds,mils);
   free(command);
 }
