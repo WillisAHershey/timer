@@ -10,10 +10,10 @@ int main(int args,char *argv[]){
 	fprintf(stderr,"USAGE: %s exec arg1 arg2 ...\n",argv[0]);
 	exit(EXIT_FAILURE);
   }
-  int len=0;
-  int *lens=malloc(sizeof(int)*(args-1));
+  size_t len=0;
+  size_t *lens=malloc(sizeof(size_t)*(args-1));
   for(int c=1;c<args;++c){
-	int l=strlen(argv[c]);
+	size_t l=strlen(argv[c]);
 	lens[c-1]=l;
 	len+=l+1;
   }
