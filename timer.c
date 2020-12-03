@@ -7,7 +7,7 @@
 
 int main(int args,char *argv[]){
   if(args<2){
-	printf("USAGE: %s exec arg1 arg2 ...\n",argv[0]);
+	fprintf(stderr,"USAGE: %s exec arg1 arg2 ...\n",argv[0]);
 	exit(EXIT_FAILURE);
   }
   int len=0;
